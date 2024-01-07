@@ -12,8 +12,8 @@ public class LinkedList<E> implements List<E> {
 
     public LinkedList() {
 
-        head=null;
-        size=0;
+        head = null;
+        size = 0;
     }
 
     @Override
@@ -23,7 +23,7 @@ public class LinkedList<E> implements List<E> {
 
     @Override
     public boolean isEmpty() {
-        return size==0;
+        return size == 0;
     }
 
     @Override
@@ -51,20 +51,45 @@ public class LinkedList<E> implements List<E> {
     @Override
     public boolean add(E e) {
         Node<E> newNode = new Node<>(e); // O(1)
-        if(head==null) // O(1)
+        if (head == null) // O(1)
             head = newNode;
-        else
-        {
+        else {
             Node<E> temp = head; // O(1)
-            while (temp.getNext()!=null) // O(n)
-                temp=temp.getNext();
+            while (temp.getNext() != null) // O(n)
+                temp = temp.getNext();
             temp.setNext(newNode); // O(1)
         }
         return true;
     }
 
+    //O(n)
     @Override
     public boolean remove(Object o) {
+
+        if (head == null)
+            return false;
+        // head = 1 -> null
+        // or head = 1 -> 2-> ... -> null
+        if ( head.getValue().equals(o)) {
+            head = head.getNext();
+            return true;
+        }
+
+        Node<E> current = head.getNext();
+        Node<E> prev = head;
+
+        //head = 1 -> 2 -> 3 -> 4 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> null
+        //head = 1 -> 2 -> 3 -> 5 -> 6 -> 7 -> 8 -> 9 -> 10 -> null
+        while (current != null) {
+            if (current.getValue().equals(o))
+            {
+                prev.setNext(current.getNext());
+                return true;
+            }
+            prev=current;
+            current=current.getNext();
+        }
+
         return false;
     }
 
@@ -143,12 +168,11 @@ public class LinkedList<E> implements List<E> {
         return null;
     }
 
-    public void print(){
+    public void print() {
         Node<E> temp = head;
-        while(temp!=null)
-        {
-            System.out.print(temp.getValue()+" -> ");
-            temp=temp.getNext();
+        while (temp != null) {
+            System.out.print(temp.getValue() + " -> ");
+            temp = temp.getNext();
         }
         System.out.println("null");
     }

@@ -1,5 +1,7 @@
 package Les02;
 
+import java.util.Random;
+
 public class MainNode {
 
     public static void main(String[] args) {
@@ -9,11 +11,10 @@ public class MainNode {
         System.out.println("Head -> " + head);
         System.out.println("n2 -> " + n2);
         head.setNext(new Node<>(2));
-        System.out.println("Head -> n2 -> null "+head);
+        System.out.println("Head -> n2 -> null " + head);
 //        n2.setNext(n3);
         head.getNext().setNext(n3);
-        System.out.println("Head -> n2 -> n3 "+head);
-
+        System.out.println("Head -> n2 -> n3 " + head);
 
 
         Node<Integer> n1 = new Node<>(1);
@@ -23,7 +24,7 @@ public class MainNode {
         System.out.println("n1 -> " + n1);
 
         n1.getNext().setNext(new Node<>(3));
-        System.out.println("n1 ->  "+n1);
+        System.out.println("n1 ->  " + n1);
 
         n1.getNext().getNext().setNext(new Node<>(4));
 
@@ -31,12 +32,11 @@ public class MainNode {
         stam.getNext();
         n1.getNext().getNext();
 
-        stam= stam.getNext();
+        stam = stam.getNext();
         stam.getNext();
         n1.getNext().getNext().getNext();
 
-        System.out.println("n1 ->  "+n1);
-
+        System.out.println("n1 ->  " + n1);
 
 
         LinkedList<Integer> ll = new LinkedList<>();
@@ -69,5 +69,55 @@ public class MainNode {
 
         ll1.add(5554);
         ll1.print();
+
+
+        LinkedList<Integer> ll2 = new LinkedList<>();
+        for (int i = 0; i < 10; i++) {
+            ll2.add(i);
+        }
+        ll2.print();
+
+        boolean bool = ll2.remove((Object) 90);
+
+        System.out.println(bool);
+        ll2.print();
+
+        bool = ll2.remove((Object) 0);
+
+        System.out.println(bool);
+        ll2.print();
+
+        ll2.add(10);
+        ll2.print();
+
+        bool = ll2.remove((Object) 2);
+
+        System.out.println(bool);
+        ll2.print();
+
+        bool = ll2.remove((Object) 6);
+
+        System.out.println(bool);
+        ll2.print();
+
+
+        bool = ll2.remove((Object) 10);
+
+        System.out.println(bool);
+        ll2.print();
+
+        ll2.add(10);
+        ll2.print();
+        for (int i = 0; i < 10; i++) {
+
+                ll2.add(new Random().nextInt(5));
+
+        }
+        ll2.print();
+        ll2.remove((Object)3);
+
+        ll2.print();
+
+
     }
 }
