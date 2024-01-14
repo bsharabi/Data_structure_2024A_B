@@ -14,7 +14,9 @@ public class LinkedListWithTail<E> implements List<E> {
     public LinkedListWithTail() {
 
         head=null;
+        tail=null;
         size=0;
+
     }
 
     @Override

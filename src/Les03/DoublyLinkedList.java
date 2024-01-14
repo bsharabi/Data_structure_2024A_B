@@ -1,29 +1,31 @@
-package Les02;
+package Les03;
 
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 
-public class LinkedList<E> implements List<E> {
+public class DoublyLinkedList<E> implements List<E> {
 
     private Node<E> head;
+    private Node<E> tail;
     private int size;
 
-    public LinkedList() {
 
-        head = null;
-        size = 0;
+    public DoublyLinkedList() {
+        head=null;
+        tail=null;
+        size=0;
     }
 
     @Override
     public int size() {
-        return size;
+        return 0;
     }
 
     @Override
     public boolean isEmpty() {
-        return size == 0;
+        return false;
     }
 
     @Override
@@ -46,19 +48,37 @@ public class LinkedList<E> implements List<E> {
         return null;
     }
 
+    //init call constructor
+    // head = null
+    //  tail = null
 
-    //O(n)
+    // add(1)
+    // newNode = null <- 1 -> null
+    // if(haed == null) -> true
+    // head = null <- 1 -> null
+    // tail = (prev) null <- 1 -> null (next)
+    // return true
+
+    // add(2)
+    // newNode = null <- 2 -> null
+    // if(haed == null) -> false
+    // tail = (null <- 1 -> ( null <- 2 -> null))
+    // tail = (null <- 1 -> ( 1 <- 2 -> null))
+    // tail = ( 1 <- 2 -> null)
     @Override
     public boolean add(E e) {
-        Node<E> newNode = new Node<>(e); // O(1)
-        if (head == null) // O(1)
+        Node<E> newNode = new Node<>(e);
+        if(head==null){
             head = newNode;
-        else {
-            Node<E> temp = head; // O(1)
-            while (temp.getNext() != null) // O(n)
-                temp = temp.getNext();
-            temp.setNext(newNode); // O(1)
+            tail= head;
+            return true;
         }
+
+        tail.setNext(newNode);
+        newNode.setPrev(tail);
+        tail=newNode;
+
+
         return true;
     }
 
@@ -69,6 +89,9 @@ public class LinkedList<E> implements List<E> {
 
         if (head.getValue().equals(o)) {
             head = head.getNext();
+
+            head.setPrev(null);
+
             return true;
         }
 
@@ -83,6 +106,7 @@ public class LinkedList<E> implements List<E> {
             current = current.getNext();
         }
         return false;
+
     }
 
     @Override
@@ -158,14 +182,5 @@ public class LinkedList<E> implements List<E> {
     @Override
     public List<E> subList(int fromIndex, int toIndex) {
         return null;
-    }
-
-    public void print() {
-        Node<E> temp = head;
-        while (temp != null) {
-            System.out.print(temp.getValue() + " -> ");
-            temp = temp.getNext();
-        }
-        System.out.println("null");
     }
 }
