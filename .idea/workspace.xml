@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5e33c6b9-6012-4a05-8442-f2468d12e19e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/src/Les02/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Les02/LinkedList.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Les02/LinkedListWithTail.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Les02/LinkedListWithTail.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Les02/MainNode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Les02/MainNode.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -66,6 +64,8 @@
       <workItem from="1704018966464" duration="7696000" />
       <workItem from="1704265947032" duration="15000" />
       <workItem from="1704657731362" duration="262000" />
+      <workItem from="1705233636431" duration="265000" />
+      <workItem from="1705477644865" duration="158000" />
     </task>
     <servers />
   </component>
