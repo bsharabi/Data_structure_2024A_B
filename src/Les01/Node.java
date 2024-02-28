@@ -39,11 +39,8 @@ public class Node<T> {
 
     @Override
     public String toString() {
-        return "Node{" +
-                "this=" + super.toString() +
-                ", value=" + value +
-                ", next=" + next +
-                '}';
+
+        return  Integer.toHexString(this.hashCode());
     }
 }
 
